@@ -1,0 +1,11 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.trenofoto{
+    height: 500px;
+    object-fit: cover;
+    object-position: center;
+}
