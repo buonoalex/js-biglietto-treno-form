@@ -126,37 +126,18 @@ function VistaBiglietti(){
     document.getElementById("prezzoUtente3").innerHTML = prezzo3;
 
 
-    /*switch(personeBiglietto){
+    switch(personeBiglietto){
+        
         case "1":
             document.getElementById("utentePrezzo2").classList.add("d-none");
             document.getElementById("utentePrezzo3").classList.add("d-none");
             document.getElementById("bigliettiUtenti").classList.remove("d-none");
-
-            
-
-            document.getElementById("postolUtente1").innerHTML = numberPosto1;
-            document.getElementById("carrozzalUtente1").innerHTML = numberCarrozzo1;
-            document.getElementById("idBigliettoUtente1").innerHTML = numberIdBiglietto1;
-            document.getElementById("emailUtente1").innerHTML = emailBiglietto;
-            document.getElementById("prezzoUtente1").innerHTML = prezzo1;
-
             console.log("Eseguito prize 1");
         break;
 
         case "2":
             document.getElementById("utentePrezzo3").classList.add("d-none");
             document.getElementById("bigliettiUtenti").classList.remove("d-none");
-
-            let numberCarrozzo2 = Math.floor(Math.random()*11)+1;
-            let numberPosto2 = Math.floor(Math.random()*51)+1
-            let numberIdBiglietto2 = Math.floor(Math.random()*10001)+1
-            let prezzo2 = CalcoloPrize(etapersona2 , kmPersonaBiglietto);
-
-            document.getElementById("postolUtente2").innerHTML = numberPosto2;
-            document.getElementById("carrozzalUtente2").innerHTML = numberCarrozzo2;
-            document.getElementById("idBigliettoUtente2").innerHTML = numberIdBiglietto2;
-            document.getElementById("emailUtente2").innerHTML = emailBiglietto;
-            document.getElementById("prezzoUtente2").innerHTML = prezzo2;
 
             console.log("Eseguito prize 2");
         break;
@@ -166,20 +147,22 @@ function VistaBiglietti(){
             console.log("Eseguito prize 3");
         break;
 
-    }*/
+    }
 }
 
 function CalcoloPrize(etaPerson , kmfatti){
     const km = 0.21;
-    let result;
+    let result = 0;
     if(etaPerson <18){
-        let result20 = (kmfatti * 20) / 100;
+        result = kmfatti * km;
+        let result20 = (result * 20) / 100;
         result = result - result20;
     }else if(etaPerson>65){
-        let result40 = (kmfatti * 40) / 100;
+        result = kmfatti * km;
+        let result40 = (result * 40) / 100;
         result = result - result40;
     }else{
         result = kmfatti * km;
     }
-    return result;
+    return result.toFixed(2);
 }
