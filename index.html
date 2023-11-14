@@ -57,8 +57,8 @@
 
       </div>
 
-        <!-- Compro Biglietti Schermata -->
-      <form class="row g-3 pt-3" id="inputUtente" onsubmit="BigliettoCompletato(event)">
+        <!-- Compro Biglietti/Input Schermata -->
+      <form class="row g-3 pt-3 d-none" id="inputUtente" onsubmit="BigliettoCompletato(event)">
         
         <div class="col-12 col-md-6">
           <label for="inputEmail" class="form-label">Email</label>
@@ -77,22 +77,65 @@
             <option>3</option>
           </select>
         </div>
-        <div class="col-12">
-          <button type="submit" class="btn btn-primary">Sign in</button>
+        <div class="col-12 pb-2">
+          <button type="submit" class="btn btn-primary">Compra</button>
         </div>
       </form>
 
-      <!-- Schermata biglietti -->
-      <div class="row">
+      <!-- Schermata età -->
+      <div class="row g-3 d-none" id="selezionaetà">
+
+        <div class="col-12" id="utente1">
+          <label for="etaUtente1">Inserisci l'eta della prima persona:</label>
+          <input id="etaUtente1" type="number">
+        </div>
+
+        <div class="col-12" id="utente2">
+          <label for="etaUtente2">Inserisci l'eta della seconda persona:</label>
+          <input id="etaUtente2" type="number">
+        </div>
+
+        <div class="col-12" id="utente3">
+          <label for="etaUtente3">Inserisci l'eta della terza persona:</label>
+          <input id="etaUtente3" type="number">
+        </div>
+
+      </div>
+
+      <!-- Biglietti Screen -->
+      <div class="row d-none" id="bigliettiUtenti">
 
         <div class="col-12">
+          <div class="row">
+            <div class="col-3">
+              <h5>GMAIL</h5>
+              <p id="emailUtente1"></p>
+            </div>
+
+            <div class="col-3">
+              <h5>POSTO E CARROZZA</h5>
+              <p id="postolUtente1"></p>
+              <p id="carrozzalUtente1"></p>
+            </div>
+
+            <div class="col-3">
+              <h5>ID BIGLIETTO</h5>
+              <p id="idBigliettoUtente1"></p>
+            </div>
+
+            <div class="col-3">
+              <h5>PREZZO</h5>
+              <p id="prezzoUtente1"></p>
+            </div>
+
+        </div>
 
         </div>
 
         <div class="col-12">
 
-        </div>
-
+        </div>  
+        
         <div class="col-12">
 
         </div>
@@ -101,7 +144,7 @@
 
       <!-- Login Schermata-->
 
-      <form class="row g-3 pt-3" id="LoginScreen">
+      <form class="row g-3 pt-3 d-none" id="LoginScreen">
         
         <div class="col-12">
           <label for="inputEmail" class="form-label">Email</label>
