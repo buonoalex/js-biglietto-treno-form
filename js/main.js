@@ -62,31 +62,62 @@ function BigliettoCompletato(){
 
     }
 
-    return choisePerson;
+    return { persone: choisePerson ,emailutente: email,kmeffettuati: kmpercorsi};
 
 }
 
+
 function VistaBiglietti(){
 
-    let numberBiglietti = BigliettoCompletato()
+
+    let risulati = BigliettoCompletato();
+
+    let personeBiglietto = risulati.persone;
+    let kmPersonaBiglietto = risulati.kmeffettuati;
+    let emailBiglietto = risulati.emailutente;
 
     let etapersona1 = document.getElementById("etaUtente1").value;
     let etapersona2 = document.getElementById("etaUtente2").value;
     let etapersona3 = document.getElementById("etaUtente3").value;
 
     console.log("Eta confermate");
+    console.log(personeBiglietto);
 
-    switch(numberBiglietti){
+    switch(personeBiglietto){
         case "1":
             document.getElementById("utentePrezzo2").classList.add("d-none");
             document.getElementById("utentePrezzo3").classList.add("d-none");
             document.getElementById("bigliettiUtenti").classList.remove("d-none");
+
+            let numberCarrozzo1 = Math.floor(Math.random()*11)+1;
+            let numberPosto1 = Math.floor(Math.random()*51)+1
+            let numberIdBiglietto1 = Math.floor(Math.random()*10001)+1
+            let prezzo1 = CalcoloPrize(etapersona1 , kmPersonaBiglietto);
+
+            document.getElementById("postolUtente1").innerHTML = numberPosto1;
+            document.getElementById("carrozzalUtente1").innerHTML = numberCarrozzo1;
+            document.getElementById("idBigliettoUtente1").innerHTML = numberIdBiglietto1;
+            document.getElementById("emailUtente1").innerHTML = emailBiglietto;
+            document.getElementById("prezzoUtente1").innerHTML = prezzo1;
+
             console.log("Eseguito prize 1");
         break;
 
         case "2":
             document.getElementById("utentePrezzo3").classList.add("d-none");
             document.getElementById("bigliettiUtenti").classList.remove("d-none");
+
+            let numberCarrozzo2 = Math.floor(Math.random()*11)+1;
+            let numberPosto2 = Math.floor(Math.random()*51)+1
+            let numberIdBiglietto2 = Math.floor(Math.random()*10001)+1
+            let prezzo2 = CalcoloPrize(etapersona2 , kmPersonaBiglietto);
+
+            document.getElementById("postolUtente2").innerHTML = numberPosto2;
+            document.getElementById("carrozzalUtente2").innerHTML = numberCarrozzo2;
+            document.getElementById("idBigliettoUtente2").innerHTML = numberIdBiglietto2;
+            document.getElementById("emailUtente2").innerHTML = emailBiglietto;
+            document.getElementById("prezzoUtente2").innerHTML = prezzo2;
+
             console.log("Eseguito prize 2");
         break;
 
