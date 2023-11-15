@@ -13,6 +13,8 @@ function LoginScreen(){
     document.getElementById("selezionaetà").classList.add("d-none");
 
     document.getElementById("contactAccessScreen").classList.add("d-none");
+
+    document.getElementById("loginAccessScreen").classList.add("d-none");
 }
 
 function ComproScreen(){
@@ -197,18 +199,27 @@ function refreshPage(event){
 
 function LoginAccess(){
 
-    let emailLogin = document.getElementById("inputEmail").value;
+    let emailLogin = document.getElementById("inputEmailLogin").value;
     let userLogin = document.getElementById("inputUsername").value;
     let passwordLogin = document.getElementById("inputPassword").value;
 
-    document.getElementById("usernameLogin").innerHTML = userLogin;
-    
-    document.getElementById("LoginScreen").classList.add("d-none");
-    document.getElementById("loginAccessScreen").classList.remove("d-none");
-    document.getElementById("contactAccessScreen").classList.add("d-none");
+    if(emailLogin == "" || userLogin == "" || passwordLogin == ""){
+        alert("Inserisci tutti i dati(Login) correttamente!");
+       
+    }else
+    {
+        document.getElementById("usernameLogin").innerHTML = userLogin;
+        
+        document.getElementById("LoginScreen").classList.add("d-none");
+        document.getElementById("loginAccessScreen").classList.remove("d-none");
+        document.getElementById("contactAccessScreen").classList.add("d-none");
 
 
-    console.log("Login dati presi");
+        console.log("Login dati presi");
+    }
+    console.log(passwordLogin);
+    console.log(userLogin);
+    console.log(emailLogin);
 
 }
 
