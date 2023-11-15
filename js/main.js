@@ -38,7 +38,7 @@ function BigliettoCompletato(){
     console.log("Input completati");
     console.log(choisePerson);
 
-    if(choisePerson > 0 && kmpercorsi == 0 || email == null){
+    if(isNaN(kmpercorsi) || email == ""){
         alert("Non hai inserito i campi correttamente!(RIPROVA)");
     }else
     {
@@ -73,8 +73,11 @@ function BigliettoCompletato(){
 
         }
 
+        console.log(kmpercorsi);
+        console.log(email);
         return { persone: choisePerson ,emailutente: email,kmeffettuati: kmpercorsi};
 
+        
     }
 }
 
