@@ -59,7 +59,7 @@
       </div>
 
         <!-- Compro Biglietti/Input Schermata -->
-      <form class="row g-3 pt-3 d-none" id="inputUtente">
+      <form class="row g-3 pt-3 d-none" id="inputUtente" onsubmit="refreshPage(event)">
         
         <div class="col-12 col-md-6">
           <label for="inputEmail" class="form-label">Email</label>
@@ -83,7 +83,7 @@
             <button class="btn btn-primary" onclick="BigliettoCompletato()">Compra</button>
           </div>
           <div class="col-12 col-md-1 pb-2">
-            <button class="btn btn-primary" onsubmit="refreshPage(event)">Azzera</button>
+            <button class="btn btn-primary" type="submit">Azzera</button>
           </div>
         </div>
       </form>
@@ -114,29 +114,29 @@
       </div>
 
       <!-- Biglietti Screen -->
-      <div class="row d-none mt-4" id="bigliettiUtenti">
+      <div class="row d-none mt-4 justify-content-center gap-3" id="bigliettiUtenti">
 
-        <div class="col-12">
+        <div class="col-10 border shadow m-1 text-center">
 
-          <div class="row" id="utentePrezzo1">
+          <div class="row justify-content-between" id="utentePrezzo1">
 
-            <div class="col-3">
+            <div class="col-2">
               <h5>GMAIL</h5>
               <p id="emailUtente1"></p>
             </div>
 
-            <div class="col-3">
+            <div class="col-2">
               <h5>POSTO E CARROZZA</h5>
               <p id="postolUtente1"></p>
               <p id="carrozzalUtente1"></p>
             </div>
 
-            <div class="col-3">
+            <div class="col-2">
               <h5>ID BIGLIETTO</h5>
               <p id="idBigliettoUtente1"></p>
             </div>
 
-            <div class="col-3">
+            <div class="col-2">
               <h5>PREZZO</h5>
               <p id="prezzoUtente1"></p>
             </div>
@@ -145,27 +145,27 @@
 
         </div>
 
-        <div class="col-12">
+        <div class="col-10 border shadow m-1 text-center">
 
-          <div class="row" id="utentePrezzo2">
+          <div class="row justify-content-between" id="utentePrezzo2">
 
-            <div class="col-3">
+            <div class="col-2">
               <h5>GMAIL</h5>
               <p id="emailUtente2"></p>
             </div>
 
-            <div class="col-3">
+            <div class="col-2">
               <h5>POSTO E CARROZZA</h5>
               <p id="postolUtente2"></p>
               <p id="carrozzalUtente2"></p>
             </div>
 
-            <div class="col-3">
+            <div class="col-2">
               <h5>ID BIGLIETTO</h5>
               <p id="idBigliettoUtente2"></p>
             </div>
 
-            <div class="col-3">
+            <div class="col-2">
               <h5>PREZZO</h5>
               <p id="prezzoUtente2"></p>
             </div>
@@ -174,28 +174,28 @@
 
         </div>  
         
-        <div class="col-12">
+        <div class="col-10 border shadow m-1 text-center">
 
                
-          <div class="row" id="utentePrezzo3">
+          <div class="row justify-content-between" id="utentePrezzo3">
 
-            <div class="col-3">
+            <div class="col-2">
               <h5>GMAIL</h5>
               <p id="emailUtente3"></p>
             </div>
 
-            <div class="col-3">
+            <div class="col-2">
               <h5>POSTO E CARROZZA</h5>
               <p id="postolUtente3"></p>
               <p id="carrozzalUtente3"></p>
             </div>
 
-            <div class="col-3">
+            <div class="col-2">
               <h5>ID BIGLIETTO</h5>
               <p id="idBigliettoUtente3"></p>
             </div>
 
-            <div class="col-3">
+            <div class="col-2">
               <h5>PREZZO</h5>
               <p id="prezzoUtente3"></p>
             </div>
@@ -236,8 +236,13 @@
       <div class="row d-none" id="loginAccessScreen">
         <div class="col-12">
           <p>BENTORNATO <span id="usernameLogin"></span></p>
-
         </div>
+        <div class="row border ms-0">
+          <div class="col-12 text-center">
+            <h3>Resoconto Acquisti</h3>
+          </div>
+        </div>
+        
       </div>
 
       <!-- Contact Screen-->

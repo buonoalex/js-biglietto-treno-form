@@ -12,8 +12,6 @@ function LoginScreen(){
 
     document.getElementById("selezionaetà").classList.add("d-none");
 
-    document.getElementById("loginAccessWrite").classList.add("d-none");
-
     document.getElementById("contactAccessScreen").classList.add("d-none");
 }
 
@@ -78,12 +76,14 @@ function BigliettoCompletato(){
 function VistaBiglietti(){
 
 
+    //Prendo risultati return BigliettoCompletato()
     let risulati = BigliettoCompletato();
 
     let personeBiglietto = risulati.persone;
     let kmPersonaBiglietto = risulati.kmeffettuati;
     let emailBiglietto = risulati.emailutente;
 
+    //Prendo input età dei passeggeri
     let etapersona1 = document.getElementById("etaUtente1").value;
     let etapersona2 = document.getElementById("etaUtente2").value;
     let etapersona3 = document.getElementById("etaUtente3").value;
@@ -91,7 +91,14 @@ function VistaBiglietti(){
     console.log("Eta confermate");
     console.log(personeBiglietto);
 
-    document.getElementById("bigliettiUtenti").classList.remove("d-none");
+    /*for(let i = 1;i<=personeBiglietto;i++){
+
+        if(("etapersona"+i) === 0){
+            alert("Ciao");
+            console.log("porco");
+        }
+        console.log("etapersona"+i);
+    }*/
 
     //Primo Biglietto
     let numberCarrozzo1 = Math.floor(Math.random()*11)+1;
@@ -176,7 +183,7 @@ function CalcoloPrize(etaPerson , kmfatti){
 }
 
 function refreshPage(event){
-    location.refresh();
+    console.log("funzione refresh");
 }
 
 function LoginAccess(){
