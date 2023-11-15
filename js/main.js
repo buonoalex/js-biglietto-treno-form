@@ -38,38 +38,44 @@ function BigliettoCompletato(){
     console.log("Input completati");
     console.log(choisePerson);
 
-    //Switch età
+    if(choisePerson > 0 && kmpercorsi == 0 || email == null){
+        alert("Non hai inserito i campi correttamente!(RIPROVA)");
+    }else
+    {
 
-    switch(choisePerson){
-        
-        case "1":
-            document.getElementById("utente2").classList.add("d-none");
-            document.getElementById("utente3").classList.add("d-none");
-            document.getElementById("selezionaetà").classList.remove("d-none");
-            console.log("eseguito1");
+        //Switch età
+
+        switch(choisePerson){
             
-        break;
-        
-        case "2":
-            document.getElementById("utente3").classList.add("d-none");
-            document.getElementById("selezionaetà").classList.remove("d-none");
-            console.log("eseguito2");
+            case "1":
+                document.getElementById("utente2").classList.add("d-none");
+                document.getElementById("utente3").classList.add("d-none");
+                document.getElementById("selezionaetà").classList.remove("d-none");
+                console.log("eseguito1");
+                
+            break;
             
-        break;
+            case "2":
+                document.getElementById("utente3").classList.add("d-none");
+                document.getElementById("selezionaetà").classList.remove("d-none");
+                console.log("eseguito2");
+                
+            break;
 
-        case "3":
-            document.getElementById("selezionaetà").classList.remove("d-none");
-            console.log("eseguito3");
-        break;
+            case "3":
+                document.getElementById("selezionaetà").classList.remove("d-none");
+                console.log("eseguito3");
+            break;
 
-        default:
-            alert("Non hai inserito i numeri");
-        break;
+            default:
+                alert("Non hai inserito i numeri dei biglietti!");
+            break;
+
+        }
+
+        return { persone: choisePerson ,emailutente: email,kmeffettuati: kmpercorsi};
 
     }
-
-    return { persone: choisePerson ,emailutente: email,kmeffettuati: kmpercorsi};
-
 }
 
 
@@ -91,77 +97,77 @@ function VistaBiglietti(){
     console.log("Eta confermate");
     console.log(personeBiglietto);
 
-    /*for(let i = 1;i<=personeBiglietto;i++){
+    if(personeBiglietto == 1 && etapersona1 == 0){
+        alert("Non hai inserito tutti i dati correttamente!(RIPROVA)");
+    }else if(personeBiglietto == 2 && (etapersona1 == 0 || etapersona2 == 0)){
+        alert("Non hai inserito tutti i dati correttamente!(RIPROVA)");
+    }else if(personeBiglietto == 3 && (etapersona1 == 0 || etapersona2 == 0 || etapersona3 == 0)){
+        alert("Non hai inserito tutti i dati correttamente!(RIPROVA)");
+    }else
+    {
+        //Primo Biglietto
+        let numberCarrozzo1 = Math.floor(Math.random()*11)+1;
+        let numberPosto1 = Math.floor(Math.random()*51)+1
+        let numberIdBiglietto1 = Math.floor(Math.random()*10001)+1
+        let prezzo1 = CalcoloPrize(etapersona1 , kmPersonaBiglietto);
 
-        if(("etapersona"+i) === 0){
-            alert("Ciao");
-            console.log("porco");
+        //Insermento valori in html Primo Biglietto
+        document.getElementById("postolUtente1").innerHTML = numberPosto1;
+        document.getElementById("carrozzalUtente1").innerHTML = numberCarrozzo1;
+        document.getElementById("idBigliettoUtente1").innerHTML = numberIdBiglietto1;
+        document.getElementById("emailUtente1").innerHTML = emailBiglietto;
+        document.getElementById("prezzoUtente1").innerHTML = prezzo1;
+
+        //Secondo Biglietto
+        let numberCarrozzo2 = Math.floor(Math.random()*11)+1;
+        let numberPosto2 = Math.floor(Math.random()*51)+1
+        let numberIdBiglietto2 = Math.floor(Math.random()*10001)+1
+        let prezzo2 = CalcoloPrize(etapersona2 , kmPersonaBiglietto);
+
+        //Insermento valori in html Secondo Biglietto
+        document.getElementById("postolUtente2").innerHTML = numberPosto2;
+        document.getElementById("carrozzalUtente2").innerHTML = numberCarrozzo2;
+        document.getElementById("idBigliettoUtente2").innerHTML = numberIdBiglietto2;
+        document.getElementById("emailUtente2").innerHTML = emailBiglietto;
+        document.getElementById("prezzoUtente2").innerHTML = prezzo2;
+
+
+        //Terzo Biglietto
+        let numberCarrozzo3 = Math.floor(Math.random()*11)+1;
+        let numberPosto3 = Math.floor(Math.random()*51)+1
+        let numberIdBiglietto3 = Math.floor(Math.random()*10001)+1
+        let prezzo3 = CalcoloPrize(etapersona3 , kmPersonaBiglietto);
+
+        //Insermento valori in html Terzo Biglietto
+        document.getElementById("postolUtente3").innerHTML = numberPosto3;
+        document.getElementById("carrozzalUtente3").innerHTML = numberCarrozzo3;
+        document.getElementById("idBigliettoUtente3").innerHTML = numberIdBiglietto3;
+        document.getElementById("emailUtente3").innerHTML = emailBiglietto;
+        document.getElementById("prezzoUtente3").innerHTML = prezzo3;
+
+
+        switch(personeBiglietto){
+
+            case "1":
+                document.getElementById("utentePrezzo2").classList.add("d-none");
+                document.getElementById("utentePrezzo3").classList.add("d-none");
+                document.getElementById("bigliettiUtenti").classList.remove("d-none");
+                console.log("Eseguito prize 1");
+            break;
+
+            case "2":
+                document.getElementById("utentePrezzo3").classList.add("d-none");
+                document.getElementById("bigliettiUtenti").classList.remove("d-none");
+
+                console.log("Eseguito prize 2");
+            break;
+
+            case "3":
+                document.getElementById("bigliettiUtenti").classList.remove("d-none");
+                console.log("Eseguito prize 3");
+            break;
+
         }
-        console.log("etapersona"+i);
-    }*/
-
-    //Primo Biglietto
-    let numberCarrozzo1 = Math.floor(Math.random()*11)+1;
-    let numberPosto1 = Math.floor(Math.random()*51)+1
-    let numberIdBiglietto1 = Math.floor(Math.random()*10001)+1
-    let prezzo1 = CalcoloPrize(etapersona1 , kmPersonaBiglietto);
-
-    //Insermento valori in html Primo Biglietto
-    document.getElementById("postolUtente1").innerHTML = numberPosto1;
-    document.getElementById("carrozzalUtente1").innerHTML = numberCarrozzo1;
-    document.getElementById("idBigliettoUtente1").innerHTML = numberIdBiglietto1;
-    document.getElementById("emailUtente1").innerHTML = emailBiglietto;
-    document.getElementById("prezzoUtente1").innerHTML = prezzo1;
-
-    //Secondo Biglietto
-    let numberCarrozzo2 = Math.floor(Math.random()*11)+1;
-    let numberPosto2 = Math.floor(Math.random()*51)+1
-    let numberIdBiglietto2 = Math.floor(Math.random()*10001)+1
-    let prezzo2 = CalcoloPrize(etapersona2 , kmPersonaBiglietto);
-
-    //Insermento valori in html Secondo Biglietto
-    document.getElementById("postolUtente2").innerHTML = numberPosto2;
-    document.getElementById("carrozzalUtente2").innerHTML = numberCarrozzo2;
-    document.getElementById("idBigliettoUtente2").innerHTML = numberIdBiglietto2;
-    document.getElementById("emailUtente2").innerHTML = emailBiglietto;
-    document.getElementById("prezzoUtente2").innerHTML = prezzo2;
-
-
-    //Terzo Biglietto
-    let numberCarrozzo3 = Math.floor(Math.random()*11)+1;
-    let numberPosto3 = Math.floor(Math.random()*51)+1
-    let numberIdBiglietto3 = Math.floor(Math.random()*10001)+1
-    let prezzo3 = CalcoloPrize(etapersona3 , kmPersonaBiglietto);
-
-    //Insermento valori in html Terzo Biglietto
-    document.getElementById("postolUtente3").innerHTML = numberPosto3;
-    document.getElementById("carrozzalUtente3").innerHTML = numberCarrozzo3;
-    document.getElementById("idBigliettoUtente3").innerHTML = numberIdBiglietto3;
-    document.getElementById("emailUtente3").innerHTML = emailBiglietto;
-    document.getElementById("prezzoUtente3").innerHTML = prezzo3;
-
-
-    switch(personeBiglietto){
-
-        case "1":
-            document.getElementById("utentePrezzo2").classList.add("d-none");
-            document.getElementById("utentePrezzo3").classList.add("d-none");
-            document.getElementById("bigliettiUtenti").classList.remove("d-none");
-            console.log("Eseguito prize 1");
-        break;
-
-        case "2":
-            document.getElementById("utentePrezzo3").classList.add("d-none");
-            document.getElementById("bigliettiUtenti").classList.remove("d-none");
-
-            console.log("Eseguito prize 2");
-        break;
-
-        case "3":
-            document.getElementById("bigliettiUtenti").classList.remove("d-none");
-            console.log("Eseguito prize 3");
-        break;
-
     }
 }
 
