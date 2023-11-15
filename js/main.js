@@ -11,6 +11,10 @@ function LoginScreen(){
     document.getElementById("bigliettiUtenti").classList.add("d-none");
 
     document.getElementById("selezionaetà").classList.add("d-none");
+
+    document.getElementById("loginAccessWrite").classList.add("d-none");
+
+    document.getElementById("contactAccessScreen").classList.add("d-none");
 }
 
 function ComproScreen(){
@@ -20,6 +24,10 @@ function ComproScreen(){
     document.getElementById("LoginScreen").classList.add("d-none");
 
     document.getElementById("inputUtente").classList.remove("d-none");
+
+    document.getElementById("loginAccessScreen").classList.add("d-none");
+
+    document.getElementById("contactAccessScreen").classList.add("d-none");
     
 }
 
@@ -127,7 +135,7 @@ function VistaBiglietti(){
 
 
     switch(personeBiglietto){
-        
+
         case "1":
             document.getElementById("utentePrezzo2").classList.add("d-none");
             document.getElementById("utentePrezzo3").classList.add("d-none");
@@ -165,4 +173,36 @@ function CalcoloPrize(etaPerson , kmfatti){
         result = kmfatti * km;
     }
     return result.toFixed(2);
+}
+
+function refreshPage(event){
+    location.refresh();
+}
+
+function LoginAccess(){
+
+    let emailLogin = document.getElementById("inputEmail").value;
+    let userLogin = document.getElementById("inputUsername").value;
+    let passwordLogin = document.getElementById("inputPassword").value;
+
+    document.getElementById("usernameLogin").innerHTML = userLogin;
+    
+    document.getElementById("LoginScreen").classList.add("d-none");
+    document.getElementById("loginAccessScreen").classList.remove("d-none");
+    document.getElementById("contactAccessScreen").classList.add("d-none");
+
+
+    console.log("Login dati presi");
+
+}
+
+function contactAccess(){
+    document.getElementById("screenPrincipal").classList.add("d-none");
+    document.getElementById("contactAccessScreen").classList.remove("d-none");
+    document.getElementById("loginAccessScreen").classList.add("d-none");
+    document.getElementById("inputUtente").classList.add("d-none");
+    document.getElementById("LoginScreen").classList.add("d-none");
+    document.getElementById("bigliettiUtenti").classList.add("d-none");
+    document.getElementById("selezionaetà").classList.add("d-none");
+
 }
